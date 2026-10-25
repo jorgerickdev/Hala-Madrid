@@ -1,5 +1,12 @@
 FROM php:8.4-cli
 
+RUN apt-get update && apt-get install -y \
+    git \
+    unzip \
+    libzip-dev
+
+RUN docker-php-ext-install zip
+
 WORKDIR /app
 
 COPY . .
